@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'second_app', # Add in the second_app directory
 ]
 
 MIDDLEWARE = [
