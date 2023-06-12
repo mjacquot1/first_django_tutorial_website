@@ -15,12 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.http.response import HttpResponse #An http response object.
 
-# Add views from first_app
-from first_app import views
+# Add the abilityo to include the urls.py file from first_app
+from django.conf.urls import include
+
+# # Add views from first_app
+# from first_app import views
+
+# from local folder import views
+from . import views
 
 urlpatterns = [
+    path('', views.home_view , name='home'),
     path('admin/', admin.site.urls),
-    
-    path('hello/', views.index, name='index'), # Return the views.index view in first_app/views
+    path('firstapp/', include('first_app.urls')), # Get all the first_app urls under firstapp/
+    # path('hello/', views.index, name='index'), # Return the views.index view in first_app/views
 ]
