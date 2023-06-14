@@ -1,15 +1,11 @@
-<html lang="en">
+{% extends 'base.html' %} 
+{% comment %} Will inherit the template from my_site/templates/base.html {% endcomment %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% comment %} Must name what inherited block is starting {% endcomment %}
+{% block content %}
 
-<body>
+    <h2>EXAMPLE HTML TEMPLATE CONNECTED</h2>
+    <h2>THIS IS INSIDE THE BLOCK</h2>
+    <h3><a href="{% url 'my_app:variable' %}">CLICK ME TO GO TO VARIABLE</a></h3>
 
-    <h1>EXAMPLE HTML TEMPLATE CONNECTED</h1>
-
-</body>
-
-</html>
+{% endblock  %}

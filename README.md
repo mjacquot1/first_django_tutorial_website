@@ -4,6 +4,8 @@ test
 
 Is this working now too?
 
+run conda install django
+
 * Creating Project
 Create Project 
 - django-admin startproject <project_name>
@@ -18,3 +20,6 @@ Migrate with python manage.py migrate
 Add app to <project_name>/settings.py by adding '<app_name>.settings.<AppName>Config' to the 'INSTALLED_APPS' list.
 Run 'python manage.py makemigrations <app_name>'
 Templates must be in a folder named 'templates' for django to look for them there
+
+
+Install django to container

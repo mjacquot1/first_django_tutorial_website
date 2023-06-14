@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>VARIABLE.HTML</h1>
+    
+    <h2><a href="{% url 'my_app:example' %}">CLICK ME TO GO TO EXAMPLE</a></h2>
+
+    <h2>First name: {{ first_name | lower | capfirst }}, last name: {{ last_name | lower | capfirst }}. </h2>
+
+    <!-- use '.0' to access index 0 like [0] -->
+    <h3>{{ some_list.0 }} </h3>
+    <h4>{{ some_dictionary.inside_key }}</h4>
+
+    <!-- Setting up a comment -->
+    <h5>{# This is a comment in django #}</h5>
+
+    {% comment %} Make a for loop {% endcomment %}
+    <h2>some_list </h2>
+    <ul>
+    {% for item in some_list %}
+        <li> {{ item }} </li>
+    {% endfor %}
+    </ul>
+
+    <h2>Key-Value list </h2>
+    <ul>
+    {% for key, value in some_dictionary.items %}
+        <li> {{ key }} : {{ value }} </li>
+    {% endfor %}
+    </ul>
+
+    {% comment %} If statement {% endcomment %}
+    {% if  logged_in %}
+        <h1> {{ first_name | lower | capfirst }} IS LOGGED IN </h1>
+    {% else %}
+        <h1> NOT LOGGED IN </h1>
+    {% endif %}
+
+    {% comment %} For and if statement {% endcomment %}
+    <h2>Greater than 1 </h2>
+    <ul>
+    {% for item in some_list %}
+
+        {% if item > 1 %}
+
+            <li> {{ item }} </li>
+
+        {% endif %}
+
+    {% endfor %}
+    </ul>
+
+
+
+</body>
+
+</html>
