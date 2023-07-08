@@ -1,6 +1,7 @@
 version: "3"
 
 services:
+
   python:
     build: .
     volumes: 
@@ -9,7 +10,7 @@ services:
       - 8000:8000
     image: test_django
     container_name: test_django_container
-    command: "python3 my_site/manage.py runserver 0.0.0.0:8000"
+    command: "python3 manage.py runserver 0.0.0.0:8000"
     restart: always
     depends_on:
       - db
@@ -24,3 +25,21 @@ services:
     - POSTGRES_PASSWORD=postgres
     container_name: postgres_db
     restart: always
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+  
+  celery:
+    restart: always
+    build:
+      context: .
+    # working_dir: "app/my_site"
+    command: celery -A my_site worker -l INFO
+    volumes:
+      - .:/app
+    container_name: celery
+    depends_on:
+      - db
+      - redis
+      - python
