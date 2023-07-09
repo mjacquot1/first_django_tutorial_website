@@ -4,4 +4,4 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
 COPY . .
-WORKDIR /app/my_site
+WORKDIR /app/my_car_site

@@ -34,8 +34,7 @@ services:
     restart: always
     build:
       context: .
-    # working_dir: "app/my_site"
-    command: celery -A my_site worker -l INFO
+    command: celery -A my_car_site worker -l INFO
     volumes:
       - .:/app
     container_name: celery
