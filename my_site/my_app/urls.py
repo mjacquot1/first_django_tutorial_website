@@ -5,7 +5,8 @@ from . import views
 # app_name is a django variable
 app_name = 'my_app'
 
-urlpatterns=[
+urlpatterns = [
     path('', views.example_view, name='example'),
-    path('variable/', views.variable_view, name='variable')
+    path('variable/', views.variable_view, name='variable'),
+    path('db_list/', views.db_list_view, name='db_list')
 ]

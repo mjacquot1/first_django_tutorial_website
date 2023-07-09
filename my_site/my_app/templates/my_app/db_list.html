@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% comment %} Will inherit the template from my_site/templates/base.html {% endcomment %}
+
+{% comment %} Must name what inherited block is starting {% endcomment %}
+{% block content %}
+
+<body>
+    <ul>
+    {% for person in patients %}
+    
+    <li>{{person}}</li>
+
+    {% endfor %}
+    </ul>
+</body>
+
+
+{% endblock  %}
