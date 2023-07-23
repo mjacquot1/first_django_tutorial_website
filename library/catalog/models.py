@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -29,7 +30,8 @@ class Book(models.Model):
     genre = models.ManyToManyField(Genre)
     language = models.ForeignKey(
         'Language', on_delete=models.SET_NULL, null=True)
-    # MORE TO COME
+    borrower = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.title
